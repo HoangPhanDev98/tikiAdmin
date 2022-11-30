@@ -8,6 +8,7 @@ import {
   TrendingUp,
 } from "@mui/icons-material";
 import React from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./sidebar.scss";
 
 function SideBar(props) {
@@ -18,16 +19,22 @@ function SideBar(props) {
           <div className="sidebar__title">Dashboard</div>
           <ul className="sidebar__list">
             <li className="sidebar__list--item active">
-              <LineStyle className="sidebar__icon" />
-              Home
+              <NavLink to="/">
+                <LineStyle className="sidebar__icon" />
+                Home
+              </NavLink>
             </li>
             <li className="sidebar__list--item">
-              <Timeline className="sidebar__icon" />
-              Analytics
+              <NavLink to="/analytics">
+                <Timeline className="sidebar__icon" />
+                Analytics
+              </NavLink>
             </li>
             <li className="sidebar__list--item">
-              <TrendingUp className="sidebar__icon" />
-              Sales
+              <NavLink to="/sales">
+                <TrendingUp className="sidebar__icon" />
+                Sales
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -35,20 +42,28 @@ function SideBar(props) {
           <div className="sidebar__title">Quick Menu</div>
           <ul className="sidebar__list">
             <li className="sidebar__list--item">
-              <PersonOutlineOutlined className="sidebar__icon" />
-              Users
+              <NavLink to="/user-list">
+                <PersonOutlineOutlined className="sidebar__icon" />
+                Users
+              </NavLink>
             </li>
             <li className="sidebar__list--item">
-              <CategoryOutlined className="sidebar__icon" />
-              Categories
+              <NavLink to="/category-list">
+                <CategoryOutlined className="sidebar__icon" />
+                Categories
+              </NavLink>
             </li>
             <li className="sidebar__list--item">
-              <Inventory2Outlined className="sidebar__icon" />
-              Products
+              <NavLink to="/product-list">
+                <Inventory2Outlined className="sidebar__icon" />
+                Products
+              </NavLink>
             </li>
             <li className="sidebar__list--item">
-              <ListAltOutlined className="sidebar__icon" />
-              Orders
+              <NavLink to="/orders-list">
+                <ListAltOutlined className="sidebar__icon" />
+                Orders
+              </NavLink>
             </li>
           </ul>
         </div>

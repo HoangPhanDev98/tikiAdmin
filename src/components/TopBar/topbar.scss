@@ -17,8 +17,12 @@
     &__logo {
         font-weight: bold;
         font-size: 30px;
-        color: darkblue;
         cursor: pointer;
+
+        a {
+            text-decoration: none;
+            color: darkblue;
+        }
     }
 
     &__right {

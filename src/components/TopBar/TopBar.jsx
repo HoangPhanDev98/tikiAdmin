@@ -1,5 +1,6 @@
 import { Language, NotificationsNone, Settings } from "@mui/icons-material";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./topbar.scss";
 
 function TopBar(props) {
@@ -7,7 +8,9 @@ function TopBar(props) {
     <div className="topbar">
       <div className="topbar-wrapper">
         <div className="topbar__left">
-          <div className="topbar__logo">Tiki Admin</div>
+          <div className="topbar__logo">
+            <Link to="/">Tiki Admin</Link>
+          </div>
         </div>
         <div className="topbar__right">
           <div className="topbar__icon">
