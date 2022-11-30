@@ -1,7 +1,7 @@
 import TopBar from "./components/TopBar/TopBar";
 import SideBar from "./components/SideBar/SideBar";
 import "./app.scss";
-import Home from "./pages/Home/Home";
+import HomePage from "./features/HomePage/HomePage";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <TopBar />
       <div className="container">
         <SideBar />
-        <Home />
+        <HomePage />
       </div>
     </div>
   );
