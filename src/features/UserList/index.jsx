@@ -1,19 +1,32 @@
 import { DeleteOutline } from "@mui/icons-material";
 import { DataGrid } from "@mui/x-data-grid";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import userApi from "../../api/userApi";
 import { dataUsers } from "../../dataUsers";
 import "./userList.scss";
 
 function UserList(props) {
-  const [data, setData] = useState(dataUsers);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    console.log("ok");
+    (async () => {
+      try {
+        const data = await userApi.getUserList();
+        setData(data);
+      } catch (err) {
+        console.log("Failed to fetch user list: ", err);
+      }
+    })();
+  }, []);
 
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
   };
 
   const columns = [
-    { field: "id", headerName: "ID", width: 70 },
+    { field: "_id", headerName: "ID", width: 70 },
     {
       field: "user",
       headerName: "User",
@@ -49,12 +62,12 @@ function UserList(props) {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user-detail/" + params.row.id}>
+            <Link to={"/user-detail/" + params.row._id}>
               <button className="userList__edit">Edit</button>
             </Link>
             <DeleteOutline
               className="userList__delete"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             />
           </>
         );
@@ -65,6 +78,7 @@ function UserList(props) {
   return (
     <div className="userList">
       <DataGrid
+        getRowId={(row) => row._id}
         rows={data}
         disableSelectionOnClick
         columns={columns}

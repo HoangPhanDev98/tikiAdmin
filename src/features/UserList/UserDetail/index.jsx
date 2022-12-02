@@ -7,6 +7,7 @@ import {
   Publish,
 } from "@mui/icons-material";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./userDetail.scss";
 
 UserDetail.propTypes = {};
@@ -16,7 +17,9 @@ function UserDetail(props) {
     <div className="userDetail">
       <div className="userDetail__title">
         <h1>Edit User</h1>
-        <button className="userDetail__addButton">Create New User</button>
+        <Link to="/user-create">
+          <button className="userDetail__addButton">Create New User</button>
+        </Link>
       </div>
 
       <div className="userDetail__desc">
@@ -123,7 +126,7 @@ function UserDetail(props) {
                   style={{ display: "none" }}
                 />
               </div>
-              <button>Update </button>
+              <button>Update</button>
             </div>
           </form>
         </div>
